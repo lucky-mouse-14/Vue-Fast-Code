@@ -1,4 +1,4 @@
-# vue
+# Vue-Fast-Code
 
 ## Project setup
 ```
