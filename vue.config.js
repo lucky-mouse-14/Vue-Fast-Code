@@ -31,7 +31,10 @@ module.exports = {
         '@v': resolve('src/views'),
         '@c': resolve('src/components'),
         '@a': resolve('src/assets'),
-        '@u': resolve('src/utils')
+        '@u': resolve('src/utils'),
+        '@styles': resolve('src/styles'),
+        '@config': resolve('src/config'),
+        '@themes': resolve('src/themes')
       }
     },
     plugins: [
@@ -62,5 +65,27 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
-  }
+  },
+
+  /**
+   * css相关配置
+   */
+  css: {
+    extract: true, // 是否使用css分离插件 ExtractTextPlugin
+    sourceMap: false, // 开启 CSS source maps?
+    requireModuleExtension: true, // 是否仅对文件名包含module的css相关文件使用 CSS Modules
+    loaderOptions: {
+      // 使用scss-loader，设置全局scss变量
+      scss: {
+        prependData: '@import "@/styles/index.scss";'
+      }
+
+      // css: {
+      //   modules: {
+      //     localIdentName: '[local]_[hash:base64:8]' // 设定 CSS Modules 命名规则
+      //   }
+      // }
+    } // css预设器配置项 详见https://cli.vuejs.org/zh/config/#css-loaderoptions
+  },
+  parallel: require('os').cpus().length > 1 // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
 }
