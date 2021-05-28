@@ -2,18 +2,50 @@
 const path = require('path')
 
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
 
+const minify = process.env.NODE_ENV === 'development' ? false : {
+  collapseWhitespace: true,
+  removeComments: true,
+  removeRedundantAttributes: true,
+  removeScriptTypeAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+  useShortDoctype: true,
+  minifyCSS: true,
+  minifyJS: true
+}
+
 module.exports = {
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      template: 'public/index.html',
+      filename: 'index.html',
+      title: 'vue-fast-code',
+      chunk: ['chunk-vendors', 'chunk-common', 'index'],
+      minify
+    },
+    preivew: {
+      entry: 'src/views/Preview/main.js',
+      template: 'public/preview.html',
+      filename: 'preview.html',
+      title: 'preview',
+      chunk: ['chunk-vendors', 'chunk-common', 'preview'],
+      minify
+    }
+  },
+
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   outputDir: 'dist/',
   filenameHashing: true, // 构建后的文件是否启用哈希命名
   assetsDir: 'assets',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
+  runtimeCompiler: true, // runtime-compiler包含编译器，可以选用template或render，选择更灵活；但是体积略大，性能略差
   devServer: {
     // host: '192.168.16.114',
     port: '1357',
@@ -44,7 +76,8 @@ module.exports = {
         threshold: 10240, // 对超过10k的数据压缩
         deleteOriginalAssets: false, // 不删除源文件
         minRatio: 0.8 // 压缩比
-      })
+      }),
+      new MonacoWebpackPlugin()
     ]
   },
 

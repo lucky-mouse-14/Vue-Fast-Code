@@ -84,7 +84,6 @@ const mutations = {
   },
   SET_DRAWVIEWSSORT: (state, data) => {
     const { pItem, newIndex, oldIndex, activeItem } = data
-    console.log('vuex sort', pItem, newIndex, oldIndex, state.drawViews)
     if (pItem) loopUpdate(state.drawViews, pItem.__config__.id, newIndex, oldIndex, activeItem)
     else {
       if (newIndex > oldIndex) {
@@ -97,12 +96,14 @@ const mutations = {
     }
   },
   SET_DRAWITEMDEL: (state, item) => {
-    console.log('vuex del', item)
     loopDel(state.drawViews, item.__config__.id)
   },
   SET_DRAWITEMCOPY: (state, item) => {
-    console.log('vuex copy', item)
     loopCopy(state.drawViews, item.__config__.id)
+  },
+  SET_DRAWVIEWSUPDATE: (state, date) => {
+    state.drawViews = _.cloneDeep(date.drawViews)
+    state.formConf = _.cloneDeep(date.formConf)
   },
   SET_DRAWVIEWSCLEAR: (state) => {
     state.drawViews = []
@@ -124,6 +125,9 @@ const actions = {
   },
   DrawItemCopy ({ commit }, args) {
     commit('SET_DRAWITEMCOPY', args)
+  },
+  DrawViewsUpdate ({ commit }, args) {
+    commit('SET_DRAWVIEWSUPDATE', args)
   },
   DrawViewsClear ({ commit }) {
     commit('SET_DRAWVIEWSCLEAR')

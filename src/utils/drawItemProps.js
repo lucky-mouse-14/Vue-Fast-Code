@@ -43,9 +43,9 @@ const onChoose = (item) => {
 const createIdAndKey = (item) => {
   const config = item.__config__
   config.id = new Date().getTime()
-  // config.renderKey = `${config.id}`
-  if (config.layout === 'formItem') {
-    item.__vModel__ = `field${store.getters.drawViews.length + 100}`
+  config.renderKey = `${config.id}`
+  if (config.layout === 'colFormItem') {
+    item.__vModel__ = `field${config.id}`
   } else if (['row', 'col'].includes(config.layout)) {
     config.componentName = `${config.layout}-${new Date().getTime()}`
     !Array.isArray(config.children) && (config.children = [])

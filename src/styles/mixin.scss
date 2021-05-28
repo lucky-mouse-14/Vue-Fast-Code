@@ -33,3 +33,23 @@
   -webkit-transition: $attr $time; /* Safari 和 Chrome */
   -o-transition: $attr $time; /* Opera */
 }
+
+@mixin action-bar {
+  .action-bar {
+    background-color: $colorActive;
+    color: #fff;
+    font-size: 14px;
+    .bar-btn {
+      height: 33px;
+      line-height: 33px;
+      padding: 0 20px;
+      cursor: pointer;
+      &:hover {
+        background-color: $colorActiveHover;
+      }
+      & + .bar-btn {
+        border-left: 1px solid $colorActiveHover;
+      }
+    }
+  }
+}

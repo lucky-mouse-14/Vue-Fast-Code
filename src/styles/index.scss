@@ -18,9 +18,26 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: none;
+  background: hsl(183, 97%, 27%);
+  -webkit-box-shadow: none;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: none;
+  border-radius: 10px;
+  background: rgba(0,0,0,0);
+  -webkit-box-shadow: none;
+}
+
 .scrollBar::-webkit-scrollbar {
   width: 4px;
-  height: 1px;
+  height: 4px;
 }
 .scrollBar::-webkit-scrollbar-thumb {
   border-radius: 10px;
@@ -36,18 +53,17 @@ body {
 }
 
 
-drag item ghost class
+//drag item ghost class
 .customGhost {
   position: relative;
   width: auto;
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: $colorActive;
-    color: $text;
-    border-radius: 5px;
-    z-index: 1;
+}
+
+// el-tree btns
+.custom-tree-node {
+  width: 100%;
+  font-size: 14px;
+  .node-operation {
+    float: right;
   }
 }

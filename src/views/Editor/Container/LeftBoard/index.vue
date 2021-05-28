@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-grow-0 flex-shrink-0 select-none scrollBar left-board" @click="onActiveCompReset">
+  <div class="flex-grow-0 flex-shrink-0 select-none left-board" @click="onActiveCompReset">
     <div class="left-board-body">
       <div class="components-list">
         <div v-for="(components, i) in componetnsList" :key="i" class="components-panel">
@@ -60,7 +60,6 @@ export default {
     // 拖拽元素 克隆回调
     onDragClone (evt) {
       // this.$store.dispatch('ActiveCompReset')
-      console.log('kelong', evt)
       this.$store.dispatch('DragElChange', evt)
     },
     // 拖拽元素 移动回调

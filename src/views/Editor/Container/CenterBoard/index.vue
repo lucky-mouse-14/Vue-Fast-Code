@@ -1,6 +1,6 @@
 <template>
   <div class="flex-auto select-none center-board" @click="onActiveCompReset">
-    <div class="scrollBar draw-board">
+    <div class="draw-board">
       <el-row :gutter="formConf.gutter" class="drawing-board">
         <vue-draggable
           :value="drawViews"
@@ -14,8 +14,8 @@
           @start="onDrawItemDragStart"
           @end="onDrawItemDragEnd">
             <DraggableItem
-              v-for="(item, index) in drawViews"
-              :key="index"
+              v-for="(item) in drawViews"
+              :key="item.renderKey"
               :current-item="item"
               :active-id="activeId"
               :draw-views="drawViews"
@@ -27,7 +27,7 @@
             </DraggableItem>
         </vue-draggable>
       </el-row>
-      <div v-if="!drawViews.length" class="text-center empty-info"><i class="el-icon-delete" />从左侧拖入组件</div>
+      <div v-if="!drawViews.length" class="text-center empty-info"><i class="el-icon-warning" />从左侧拖入组件</div>
     </div>
   </div>
 </template>

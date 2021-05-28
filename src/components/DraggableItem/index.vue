@@ -1,6 +1,6 @@
 <script>
 import VueDraggable from 'vuedraggable'
-import _ from 'lodash'
+// import _ from 'lodash'
 import { onDrawItemAdd, onDrawItemRemove, onDrawItemDragStart, onDrawItemDragEnd, onDrawViewsUpdate } from '@u/drawItemProps'
 import Render from '@c/Render'
 
@@ -31,8 +31,6 @@ const layouts = {
   colFormItem (h, currentItem, drawViews) {
     const { activeItem } = this.$listeners
     const config = currentItem.__config__
-    const slot = currentItem.__slot__
-    const Tag = `${config.tag}`
 
     let className = 'draw-item draw-item__bg'
     if (this.activeId === config.id) className = className + ' active'
@@ -40,14 +38,6 @@ const layouts = {
 
     let labelWidth = config.labelWidth ? `${config.labelWidth}px` : null
     if (config.showLabel === false) labelWidth = '0'
-
-    const text = slot && slot.default ? slot.default : ''
-    const prepend = slot && slot.prepend ? <template slot="prepend">{slot.prepend}</template> : ''
-    const append = slot && slot.append ? <template slot="append">{slot.append}</template> : ''
-
-    const attrs = _.cloneDeep(currentItem)
-    delete attrs.__config__
-    delete attrs.__slot__
 
     return (
       <el-col span={config.span}>
@@ -57,19 +47,7 @@ const layouts = {
             label-width={labelWidth}
             required={config.required}
             nativeOnClick={event => { activeItem(currentItem); event.stopPropagation() }}>
-            <Tag
-              value={config.defaultValue}
-              placeholder={currentItem.placeholder}
-              onInput={event => { this.$set(config, 'defaultValue', event) }}
-
-              {...{
-                attrs
-              }}
-            >
-              {text}
-              {prepend}
-              {append}
-            </Tag>
+            <Render key={config.renderKey} el={currentItem} on-input={event => { this.$set(config, 'defaultValue', event) }}></Render>
           </el-form-item>
           {components.itemBtns.apply(this, arguments)}
         </div>
@@ -79,13 +57,12 @@ const layouts = {
   row (h, currentItem, drawViews) {
     const { activeItem } = this.$listeners
     const config = currentItem.__config__
-    const slot = currentItem.__slot__
 
     let className = 'draw-item draw-item__border'
     if (this.activeId === config.id) className = className + ' active'
     if (this.itemBorder) className = className + ' border'
 
-    let child = renderChildren.apply(this, arguments)
+    const child = renderChildren.apply(this, arguments)
 
     return (
       <el-col span={config.span}>
