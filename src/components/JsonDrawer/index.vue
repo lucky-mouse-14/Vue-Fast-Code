@@ -1,6 +1,6 @@
 <template>
   <div class="json-drawer">
-    <el-drawer v-bind="$attrs" v-on="$listeners" :destroy-on-close="true" :show-close="false" @opened="onOpen" @closed="onClosed" size="580px">
+    <el-drawer v-bind="$attrs" v-on="$listeners" :destroy-on-close="false" :show-close="false" @opened="onOpen" @closed="onClosed" size="580px">
       <div class="flex flex-nowrap justify-start items-center text-center action-bar">
         <span class="bar-btn" @click="updateJson">
           <i class="el-icon-refresh-right" />

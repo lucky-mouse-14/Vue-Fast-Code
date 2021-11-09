@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-drawer size="100%" :withHeader="false" v-bind="$attrs" v-on="$listeners" :destroy-on-close="true" :show-close="false" @opened="onOpen" @closed="onClosed">
+    <el-drawer size="100%" :withHeader="false" v-bind="$attrs" v-on="$listeners" :destroy-on-close="false" :show-close="false" @opened="onOpen" @closed="onClosed">
       <el-row style="height: 100%;">
         <el-col :md="24" :lg="12" class="left-editor" v-loading="!codeLoaded" element-loading-text="代码加载中" element-loading-background="rgba(0, 0, 0, 0.8)">
           <div class="left-editor__header">
