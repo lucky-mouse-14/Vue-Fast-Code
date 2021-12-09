@@ -45,5 +45,6 @@
     "sass-loader": "^8.0.2",
     "svg-sprite-loader": "^4.1.6",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "license": "MIT"
 }
