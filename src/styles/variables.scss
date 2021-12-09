@@ -8,5 +8,6 @@ $bgColorHover: #787be8;
 $borderColor: #f6f7ff;
 $borderColorHover: #787be8;
 
-$colorActive: hsl(183, 97%, 27%);
-$colorActiveHover: hsl(183, 80%, 27%);
+$--color-primary: hsla(183, 97%, 27%, 1);
+$--color-primary--active: hsla(183, 97%, 20%, 1);
+$--color-primary--bg: hsla(183, 60%, 92%, 1);

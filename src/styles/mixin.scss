@@ -36,7 +36,7 @@
 
 @mixin action-bar {
   .action-bar {
-    background-color: $colorActive;
+    background-color: $--color-primary;
     color: #fff;
     font-size: 14px;
     .bar-btn {
@@ -45,10 +45,10 @@
       padding: 0 20px;
       cursor: pointer;
       &:hover {
-        background-color: $colorActiveHover;
+        background-color: $--color-primary--active;
       }
       & + .bar-btn {
-        border-left: 1px solid $colorActiveHover;
+        border-left: 1px solid $--color-primary--active;
       }
     }
   }

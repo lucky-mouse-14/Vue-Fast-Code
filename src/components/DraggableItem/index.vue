@@ -162,13 +162,13 @@ export default {
     background-color: $bgColor;
   }
   &.active.draw-item__border {
-    border-color: $colorActive;
+    border-color: $--color-primary;
   }
   &.active > .draw-item__btns {
     display: block;
   }
   &.border {
-    border-color: $colorActive;
+    border-color: $--color-primary;
   }
   .el-form-item {
     margin: 0;
@@ -209,8 +209,8 @@ export default {
   text-align: center;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid $colorActive;
-  color: $colorActive;
+  border: 1px solid $--color-primary;
+  color: $--color-primary;
   &.delete {
     border-color: $textRed;
     color: $textRed;
@@ -219,7 +219,7 @@ export default {
     }
   }
   &:hover {
-    background-color: $colorActive;
+    background-color: $--color-primary;
     color: #fff;
   }
 }

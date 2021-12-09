@@ -125,7 +125,7 @@ export default {
     line-height: 30px;
     border-radius: 50%;
     color: #fff;
-    background-color: $colorActive;
+    background-color: $--color-primary;
     font-size: 18px;
   }
   span {
@@ -152,7 +152,7 @@ export default {
   position: relative;
   @include transform(all, .3s);
   &:hover {
-    background-color: $colorActive;
+    background-color: $--color-primary;
     .header__subbtns {
       display: block;
     }

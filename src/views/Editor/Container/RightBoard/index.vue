@@ -773,7 +773,7 @@ export default {
   min-height: 100%;
 }
 .document-link {
-  background-color: $colorActive;
+  background-color: $--color-primary;
   display:block;
   border-bottom-right-radius: 5px;
   width: 30px;
@@ -785,7 +785,7 @@ export default {
 }
 
 .empty-info {
-  color: $colorActive;
+  color: $--color-primary;
   padding-top: 50px;
 }
 

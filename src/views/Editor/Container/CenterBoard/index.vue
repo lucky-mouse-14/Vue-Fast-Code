@@ -119,6 +119,6 @@ export default {
   font-size: 22px;
   font-weight: 600;
   letter-spacing: 5px;
-  color: $colorActive;
+  color: $--color-primary;
 }
 </style>

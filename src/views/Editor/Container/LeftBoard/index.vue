@@ -83,6 +83,7 @@ export default {
 .left-board {
   width: 280px;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 8px;
 }
 .components-panel{
@@ -101,12 +102,12 @@ export default {
   font-size: 12px;
   cursor: move;
   vertical-align: middle;
-  background-color: $bgColor;
+  background-color: $--color-primary--bg;
   border-radius: 3px;
-  border: 1px solid $borderColor;
+  border: 1px solid $--color-primary--bg;
   &:hover {
-    color: $textHover;
-    border: 1px dashed $borderColorHover;
+    color: $--color-primary--active;
+    border: 1px dashed $--color-primary;
   }
   .svg-icon {
     font-size: 14px;
