@@ -27,7 +27,9 @@
   height: 100%;
 }
 
-@mixin transform($attr:all, $time:.3s) {
+
+
+@mixin transition($attr:all, $time:.3s) {
   transition: $attr $time;
   -moz-transition: $attr $time; /* Firefox 4 */
   -webkit-transition: $attr $time; /* Safari 和 Chrome */

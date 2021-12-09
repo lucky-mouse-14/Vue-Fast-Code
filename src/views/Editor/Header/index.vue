@@ -150,12 +150,18 @@ export default {
   line-height: 40px;
   cursor: pointer;
   position: relative;
-  @include transform(all, .3s);
+  @include transition(all, .3s);
   &:hover {
     background-color: $--color-primary;
     .header__subbtns {
       display: block;
     }
+  }
+  svg {
+    @include transition(all, .3s);
+  }
+  &:hover svg {
+    transform: scale(1.1);
   }
 }
 // header__subbtns
